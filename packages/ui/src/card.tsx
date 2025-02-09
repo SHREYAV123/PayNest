@@ -1,4 +1,4 @@
-import React from "react";
+
 
 export function Card({
   title,
@@ -11,10 +11,10 @@ export function Card({
     <div
       className="border p-6 bg-white rounded-xl bg-[#ededed]"
     >
-      <h1 className="text-xl border-b pb-2">
+      <h1 className="pb-2 text-xl border-b">
         {title}
       </h1>
-      <p>{children}</p>
+      <div>{children}</div>
     </div>
   );
 }
