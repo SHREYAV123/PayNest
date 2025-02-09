@@ -3,6 +3,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "../auth";
 import prisma from "@repo/db/client";
 
+
 export async function p2pTransfer(to: string, amount: number) {
     const session = await getServerSession(authOptions);
     const from = session?.user?.id;
@@ -54,4 +55,26 @@ export async function p2pTransfer(to: string, amount: number) {
         return { message: "Money is successfully transferred" };
 
     });
+}
+
+
+
+
+
+
+export async function getP2PTransactions() {
+    const session = await getServerSession(authOptions);
+    const userId = Number(session?.user?.id);
+    const txns = await prisma.p2pTransfer.findMany({
+        where: {
+            OR: [{ fromUserId: userId }, { toUserId: userId }]
+        }
+    });
+
+    return txns.map(t => ({
+        timestamp: t.timestamp,
+        amount: t.amount,
+        fromUserId: t.fromUserId,
+        toUserId: t.toUserId
+    }));
 }
