@@ -1,32 +1,14 @@
 import { SendCard } from "../../../components/SendCard";
 
 import { P2PRecipent } from "../../../components/P2PRecipent";
-import prisma from "@repo/db/client";
+import { getP2PTransactions } from "../../lib/actions/p2pTransfer";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../../lib/auth";
 
 
 
-export async function getP2PTransactions() {
-    const session = await getServerSession(authOptions);
-    const userId = Number(session?.user?.id);
-    const txns = await prisma.p2pTransfer.findMany({
-        where: {
-            OR: [
-                { fromUserId: userId }, // Fetch transactions where the user is the sender
-                { toUserId: userId }    // Fetch transactions where the user is the recipient
-            ]
-        }
-    });
-    return txns.map(t => ({
-        timestamp: t.timestamp,
-        amount: t.amount,
-        fromUserId: t.fromUserId,
-        toUserId: t.toUserId, 
-        
-    }))
-}
-export default async function() {
+
+export default async function P2PTransferPage() {
     const transactions = await getP2PTransactions();
     const session = await getServerSession(authOptions);
     const userId = Number(session?.user?.id);
@@ -48,5 +30,3 @@ export default async function() {
         </div>
     );
     }
-    
-

@@ -6,6 +6,9 @@
     "recoil": "^0.7.7"
   },
   "exports": {
-    "./balance": "./src/hooks/useBalance"
+  "./balance": "./dist/hooks/useBalance.js"
+},
+  "scripts": {
+    "build": "tsc"
   }
 }
