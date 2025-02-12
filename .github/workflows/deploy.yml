@@ -27,4 +27,4 @@ jobs:
         tags: shreya890/paynest:latest
 
     - name: Verify Pushed Image
-      run: shreya890/paynest:latest
+      run: docker pull shreya890/paynest:latest
