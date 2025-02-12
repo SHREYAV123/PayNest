@@ -27,4 +27,4 @@ jobs:
         tags: shreya890/paynest:latest
 
     - name: Verify Pushed Image
-      run: docker pull your-dockerhub-username/your-repo-name:latest
+      run: shreya890/paynest:latest
