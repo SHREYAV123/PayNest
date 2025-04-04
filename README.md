@@ -1,7 +1,24 @@
+
+A dummy digital wallet app for learning fullstack deployment.
+#Nextjs, #Prisma, #PostgreSQL, #Fullstack
+
+
+## 🔐 Demo Login
+
+Use the following accounts to try the app:
+
+- **Alice**
+  - Phone: `1111111111`
+  - Password: `alice`
+- **Bob**
+  - Phone: `2222222222`
+  - Password: `bob`
+
+
 - Clone the repo
 
 ```jsx
-git clone https://github.com/100xdevs-cohort-2/week-17-final-code
+git clone https://github.com/SHREYAV123/PayNest.git
 ```
 
 - npm install
