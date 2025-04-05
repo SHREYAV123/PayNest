@@ -25,7 +25,7 @@ return <div>
      <Center>
 <Card title="Recent Transactions">
 <div className="pt-2 min-w-72">
-{transactions.map(t => <div className="flex justify-between " key={t.timestamp.toString()} >
+{transactions.map((t:any) => <div className="flex justify-between " key={t.timestamp.toString()} >
 <div>
 <div className="text-sm">
 {t.fromUserId === userId ? "Sent INR" : "Received INR"}

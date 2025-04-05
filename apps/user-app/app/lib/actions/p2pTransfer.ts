@@ -71,7 +71,7 @@ export async function getP2PTransactions() {
         }
     });
 
-    return txns.map(t => ({
+    return txns.map((t:any) => ({
         timestamp: t.timestamp,
         amount: t.amount,
         fromUserId: t.fromUserId,
